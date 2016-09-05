@@ -1,4 +1,4 @@
-# GlobalEarthquakeMonitor
+# Global Earthquake Monitor
 
 ## Introduction
 The global earthquake monitor is a desktop application that displays information regarding worldwide earthquake activity. When first launched, the application displays an user interface that contains a list of all earthquakes that have occurred in the last one hour. 
