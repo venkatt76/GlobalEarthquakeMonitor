@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR" FileSource="$(var.SolutionDir)Application\bin\Release">
+      <Component Id="Plethora.GlobalEarthquakeMonitor.exe" Guid="EB3D670A-9000-46BC-90A8-CF25B9C463EB">
+        <File Id="Plethora.GlobalEarthquakeMonitor.exe" Name="Plethora.GlobalEarthquakeMonitor.exe" KeyPath="yes"/>
+      </Component>
+      <Component Id="Plethora.GlobalEarthquakeMonitor.exe.config" Guid="AF7AAED7-1E77-4D06-B07D-EB9851573A06">
+        <File Id="Plethora.GlobalEarthquakeMonitor.exe.config" Name="Plethora.GlobalEarthquakeMonitor.exe.config" KeyPath="yes"/>
+      </Component>
+      <Component Id="Newtonsoft.Json.dll" Guid="4C3FED8B-96D0-46F6-95A2-8C83D12E85F5">
+        <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" KeyPath="yes"/>
+      </Component>
+      <Component Id="Newtonsoft.Json.xml" Guid="CE3B99D9-FE64-4D78-B329-27F1A100CA4A">
+        <File Id="Newtonsoft.Json.xml" Name="Newtonsoft.Json.xml" KeyPath="yes"/>
+      </Component>
+      <Component Id="GeoJSON.Net.dll" Guid="72F57ADD-B67B-4FD7-A89E-8F69FEDA29E9">
+        <File Id="GeoJSON.Net.dll" Name="GeoJSON.Net.dll" KeyPath="yes"/>
+      </Component>
+      <Component Id="GeoJSON.Net.xml" Guid="9A0B212A-1914-49DC-ACFD-400D359F0B98">
+        <File Id="GeoJSON.Net.xml" Name="GeoJSON.Net.xml" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="Application">
+      <ComponentRef Id="Plethora.GlobalEarthquakeMonitor.exe"/>
+      <ComponentRef Id="Plethora.GlobalEarthquakeMonitor.exe.config"/>
+      <ComponentRef Id="Newtonsoft.Json.dll"/>
+      <ComponentRef Id="Newtonsoft.Json.xml"/>
+      <ComponentRef Id="GeoJSON.Net.dll"/>
+      <ComponentRef Id="GeoJSON.Net.xml"/>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

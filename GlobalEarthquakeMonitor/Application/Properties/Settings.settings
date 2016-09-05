@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Plethora.GlobalEarthquakeMonitor.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="EarthquakeInformationUpdateFrequency" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="EarthquakeInformationFeedURI" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson</Value>
+    </Setting>
+    <Setting Name="EarthquakeInformationFDSNWSFeedURI" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson</Value>
+    </Setting>
+    <Setting Name="WorldCitiesDataFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data\world_cities.csv</Value>
+    </Setting>
+    <Setting Name="WorldCitiesDataColumnDelimiter" Type="System.Char" Scope="Application">
+      <Value Profile="(Default)">,</Value>
+    </Setting>
+    <Setting Name="WorldCitiesDataCityNameColumnNumber" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="WorldCitiesDataCityLatitudeColumnNumber" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="WorldCitiesDataCityLongitudeColumnNumber" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="EarthquakeInformationTitle" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Earthquake Data: 1 Hour, All Magnitudes Worldwide</Value>
+    </Setting>
+    <Setting Name="EarthquakeInformationContinousMonitoring" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

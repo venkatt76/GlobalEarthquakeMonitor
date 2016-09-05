@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="Data" FileSource="$(var.SolutionDir)Application\bin\Release\Data">
+      <Component Id="world_cities.csv" Guid="B577EC41-ABF1-4150-8254-E8D56E1A3ABC">
+        <File Id="world_cities.csv" Name="world_cities.csv" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="Data">
+      <ComponentRef Id="world_cities.csv"/>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

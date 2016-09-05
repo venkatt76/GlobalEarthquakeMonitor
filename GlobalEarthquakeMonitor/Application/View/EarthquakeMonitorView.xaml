@@ -1,0 +1,68 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:GlobalEarthquakeMonitorView="clr-namespace:Plethora.GlobalEarthquakeMonitor.View"        
+        xmlns:GlobalEarthquakeMonitorViewModel="clr-namespace:Plethora.GlobalEarthquakeMonitor.ViewModel"
+        xmlns:GlobalEarthquakeMonitor="clr-namespace:Plethora.GlobalEarthquakeMonitor" x:Name="GlobalEarthquakeMonitor" x:Class="Plethora.GlobalEarthquakeMonitor.View.EarthquakeMonitorView"
+        mc:Ignorable="d"
+        Title="Global Earthquake Monitor" MinHeight="400" MinWidth="900" FontSize="16" SizeToContent="WidthAndHeight" Background="Beige" Height="400" Width="1000" BorderBrush="LightGray" BorderThickness="1">
+    <Window.Resources>
+    </Window.Resources>
+    <Window.DataContext>
+        <GlobalEarthquakeMonitorViewModel:EarthquakeMonitorViewModel/>
+    </Window.DataContext>
+    <DockPanel Margin="10" LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="#FFC7C5C5">
+            <Label x:Name="EarthquakeDataLabel" TextOptions.TextRenderingMode="ClearType" FontSize="16" FontWeight="Bold" >
+                <TextBlock x:Name="TitleBlock" Text="{Binding EarthquakeInformationTitle}" FontSize="16" />
+            </Label>
+            <Label x:Name="SyncTimeDataLabel" Content="Last Updated (UTC):"  TextOptions.TextRenderingMode="ClearType" FontSize="16" VerticalContentAlignment="Bottom" />
+            <TextBlock x:Name="SyncTimeTextBlock" Text="{Binding EarthquakeInstancesSyncTime}" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" TextDecorations="{x:Null}" />
+        </StackPanel>
+        <ListView x:Name="EarthquakeInformationListView" ItemsSource="{Binding EarthquakeInstances}" SelectedItem="{Binding Path=CurrentEarthQuakeInstance}" Background="#FFE6CFCF" AlternationCount="2" FontSize="14" Grid.ColumnSpan="2">
+            <ListView.Resources>
+                <GlobalEarthquakeMonitorViewModel:LastItemInListConverter x:Key="LastItemInListConverter"/>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Style.Triggers>
+                        <Trigger Property="ItemsControl.AlternationIndex"  Value="0">
+                            <Setter Property="Background" Value="#FFE6CFCF" />
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex"  Value="1">
+                            <Setter Property="Background" Value="LightGray" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="200" Header="Occurrence Time (UTC)" DisplayMemberBinding="{Binding OccurrenceTime}" />
+                    <GridViewColumn Width="150" Header="Magnitude">
+                        <GridViewColumn.CellTemplate >
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Magnitude, StringFormat=N2}" TextAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="260" Header="Coordinates (Latitude, Longitude)" DisplayMemberBinding="{Binding Coordinates.}" />
+                    <GridViewColumn Width="350" Header="Closest Cities">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock x:Name="ClosestCitiesTextBlock" Text="{Binding ClosestCities, Converter={StaticResource LastItemInListConverter}, StringFormat=' {0} '}" TextAlignment="Justify"/>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GridViewColumn}, Converter={StaticResource LastItemInListConverter}}" Value="True">
+                                        <Setter Property="Text" TargetName="ClosestCitiesTextBlock" Value="{Binding ClosestCities, StringFormat=' {0}'}"/>
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>

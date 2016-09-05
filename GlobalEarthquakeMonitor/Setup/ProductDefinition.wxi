@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define ApplicationName="GlobalEarthquakeMonitor"?>
+  <?define Manufacturer="Plethora"?>
+  <?define Version="1.0"?>
+  <?define FullVersion="1.0.0.0"?>
+  <?define ProductName="$(var.ApplicationName) $(var.Version)"?>
+
+  <?if $(var.Platform) = x64 ?>
+  <?define ProductCode = "97FE467C-8F71-4B42-AFB7-00AAA21E0ACA" ?>
+  <?define UpgradeCode = "D8E8395C-6196-4208-B0C3-B6A138324055" ?>
+  <?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
+  <?define PlatformMessage = "This is 64bit installer for [ProductName], therefore 64bit OS is required to run this installer." ?>
+  <?define PlatformCondition = VersionNT64 ?>
+  <?else ?>
+  <?define ProductCode = "318B8727-3CC7-4A9C-8E6A-A46A22A8DD33" ?>
+  <?define UpgradeCode = "8BB99C7F-A5A7-4978-A0F5-EF2B1F03C86A" ?>
+  <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+  <?define PlatformMessage = "This is 32bit installer for [ProductName], therefore 32bit OS is required to run this installer." ?>
+  <?define PlatformCondition = NOT VersionNT64 ?>
+  <?endif ?>
+</Include>
