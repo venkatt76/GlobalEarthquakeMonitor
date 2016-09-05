@@ -52,3 +52,5 @@ The application is built using the .NET version 4.5 as the platform. Therefore, 
   - .NET framework 4.5 (platform), C# (programming language), WPF (user interface), MVVM (UI pattern), WIX (installer).
   - Third-party libraries (NuGet packages): Newtonsoft.dll (JSON parser) - already present in packages subfolder.
   - Data files: world_cities.csv (world cities names and coordinates file) - already present in Data subfolder.
+
+Note: There is also a SQLLite database (Plethora.GlobalEarthquakeMonitor.db) file that has been created for usage with the application. The database contains the world cities information. This database file or a more secure SQL Server database will be used by the application in ideal scenarios since this database can reside on a separate database server and accessed in a secure manner. This SQLite database has been tested with System.Data.SQLite NuGet package provided by the SQLite development team. The application can be enhanced to use this database file - the only change needed would be to the data access reader class (WorldCitiesReader.cs).
