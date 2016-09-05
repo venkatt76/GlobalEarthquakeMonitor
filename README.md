@@ -14,11 +14,10 @@ Pre-requisites: The application is built using the .NET version 4.5 as the platf
 The Windows installer (MSI) for the application can be downloaded from the project repository's setup folder:
 https://github.com/venkatt76/GlobalEarthquakeMonitor/tree/master/GlobalEarthquakeMonitor/Setup/bin/x64/Release
 
-The installer can be used to deploy the application. When launched, the installer displays a user interface that can be used to specify the directory for the installation (default location is the Program Files folder). The installer after running to completion will display whether the application files were successfully deployed. 
+The installer has been provided for automated deployment of the application. When launched, the installer displays a user interface that can be used to specify the directory for the installation, the default installation folder is:
+**%ProgramFiles%\Plethora\GlobalEarthquakeMonitor 1.0**
 
 The file **Plethora.GlobalEarthquakeMonitor.exe** is the application executable which can be launched from its install location.
-
-The installer has been provided for automated deployment of the application.
 
 ### XCopy Deployment:
 Since the application is a standalone executable, the executable and dependent files can simply be copied to a local folder and then launched from that location, if desired. There are no other actions performed by the installer in addition to the application files being copied to the target folder (i.e. no custom actions, configuration etc.).
